@@ -1,8 +1,13 @@
 ﻿
 window.iazi = window.iazi || {};
 iazi.maps = iazi.maps || {};
-iazi.maps = function (container,key) {
+iazi.maps = function (container,key,path) {
   
+    var obj = JSON.parse(path);
+    path = obj.basePath;
+	
+	sessionStorage.setItem('iazimappath', path);
+	
     iazi.maps.loadContainer(container);
 
     var head = document.getElementById(container);
@@ -13,10 +18,10 @@ iazi.maps = function (container,key) {
     script.innerHTML = 'document.write("<base href=\'" + document.location.pathname + "\' />");';
     head.appendChild(script);
 
-    var scripts = ['inline.bundle.js', 'polyfills.bundle.js',
-                    'scripts.bundle.js', 'main.bundle.js'];
+    var scripts = [path + '/inline.bundle.js', path + '/polyfills.bundle.js',
+                    path + '/scripts.bundle.js', path + '/main.bundle.js'];
 
-    var hrefs = ['styles.bundle.css'];
+    var hrefs = [path + '/styles.bundle.css'];
 
     iazi.maps.loadScript(scripts, container);
     iazi.maps.loadCSS(hrefs, container);
