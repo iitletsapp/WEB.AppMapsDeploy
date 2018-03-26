@@ -14,18 +14,27 @@
     "TITLE": "Addresse eingeben"
   },
   "GENERAL": {
+    "MUNICIPALITY": "Gemeinde",
+    "CANTON": "Kanton",
     "DISTRICT": "Bezirk",
+    "COMMUNITYTYPE": "Gemeindetyp",
     "AREA": "Fläche",
     "POPULATIONDENSITY": "Bevölkerungsdichte",
     "MUNICIPALITYTYPE": "Gemeindetyp"
   },
   "POPULATION": {
     "POPULATION": "Bevölkerung",
+    "POPULATIONGROWTHHEADER": "Bevölkerungswachstum",
     "AGECATEGORY": "Altersklassen",
+    "KEYFIGURES": "Kennzahlen",
     "FOREIGNERQUOTA": "Ausländerquote",
     "UNEMPLOYMENTRATE": "Arbeitslosenquote",
     "INCOMETAX": "Steuerbares Einkommen pro Person",
-    "POPULATIONGROWTH": "Jährliche Bevölkerungsentwicklung über 5 Jahre"
+    "POPULATIONGROWTH": "Jährliche Bevölkerungsentwicklung über 5 Jahre",
+    "POPULATIONCHARTYLABEL": "Bevölkerung",
+    "POPULATIONCHARTXLABEL": "Jahr",
+    "AGECHARTYLABEL": "Altersklasse",
+    "AGECHARTXLABEL": "Anteil in %"
   },
   "TAXES": {
     "OVERVIEW": "Steuerbelastung",
@@ -34,11 +43,13 @@
     "LEGEND3": "Ehepaar, kinderlos, Bruttoeinkommen 150'000 CHF",
     "LEGEND4": "Ehepaar, 2 Kinder, Bruttoeinkommen 70'000 CHF",
     "LEGEND5": "Ehepaar, 2 Kinder, Bruttoeinkommen 100'000 CHF",
-    "LEGEND6": "Pensioniertes Ehepaar, über 65, Renteneinkommen 70'000 CHF"
+    "LEGEND6": "Pensioniertes Ehepaar, über 65, Renteneinkommen 70'000 CHF",
+    "TAXCHARTYLABEL" : "Jährliche Belastung"
 
   },
   "HOUSINGMARKERT": {
     "INDEX": "Eigenheimindex",
+    "KEYFIGURES": "Kennzahlen",
     "VACANCY": "Leerstandsziffer",
     "HOUSINGSTOCK": "Wohnungsbestand",
     "NEWHOUSING": "Neue Wohnungen in den letzten 5 Jahren"
@@ -50,7 +61,13 @@
     "NOISE": "Lärm",
     "VIEW": "Sicht",
     "SUNSHINE": "Sonnenstunden",
-    "TRANSPORT": "Transport"
+    "TRANSPORT": "Transport",
+    "GENERALINFO": "Allgemein",
+    "POPULATION": "Bevölkerung",
+    "TAX": "Steuern",
+    "HOUSINGMARKET": "Markt",
+    "POI": "POI",
+    "NOISE": "Lärm"
   },
   "POI": {
     "MINDISTANCE": "Nächstgelegen",
@@ -61,7 +78,8 @@
     "LEISURE": "Vergnügen",
     "EMERGENCY": "Notfall",
     "DISTANCE": "Distanz",
-    "CONNECTIVITY": "Verbindungen"
+    "CONNECTIVITY": "Verbindungen",
+    "LISTOFPLACES": "Nahegelegenste Orte"
   },
   "NOISE": {
     "TITLE": "Lärm",
@@ -69,7 +87,8 @@
     "STREET": "Strassenlärm",
     "RAIL": "Bahnlärm",
     "PLANE": "Fluglärm",
-    "INDB": "Lärm in dB:"
+    "INDB": "Lärm in dB:",
+    "NOISELEVELREFERENCE": "Vergleichswerte"
   },
 
   "BACKTOMARKER": {
@@ -79,7 +98,7 @@
   "GENERIC": {
     "ADDRESS": "Adresse",
     "RATING": "Rating",
-    "NAME": "Name-de",
+    "NAME": "Name",
     "MUNICIPALITY": "Gemeinde",
     "GENERAL": "Allgemein",
     "POPULATION": "Bevölkerung",
@@ -93,5 +112,11 @@
     "CLASSIFICATION3": "Gut",
     "CLASSIFICATION4": "Mittel",
     "CLASSIFICATION5": "Schlecht"
+  },
+  
+  "STARTUP": { 
+    "HEADER1": "Ganz einfach Immobilienstandorte prüfen.", 
+    "HEADER2": "Geben Sie die Adresse Ihrer Wahl ein und wir zeigen Ihnen die Lagequalität." 
   }
+
 }
