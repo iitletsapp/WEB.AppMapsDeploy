@@ -18,8 +18,7 @@ iazi.maps = function (container,key,path) {
     script.innerHTML = 'document.write("<base href=\'" + document.location.pathname + "\' />");';
     head.appendChild(script);
 
-    var scripts = [path + '/inline.bundle.js', path + '/polyfills.bundle.js',
-                    path + '/scripts.bundle.js', path + '/main.bundle.js'];
+    var scripts = [path + '/inline.bundle.js', path + '/polyfills.bundle.js', path + '/main.bundle.js'];
 
     var hrefs = [path + '/styles.bundle.css'];
 
