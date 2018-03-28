@@ -7,7 +7,7 @@ iazi.maps = function (container,key,path) {
     path = obj.basePath;
 	
 	sessionStorage.setItem('iazimappath', path);
-	
+	iazi.maps.setMainContainerHeight(container);
     iazi.maps.loadContainer(container);
 
     var head = document.getElementById(container);
@@ -25,7 +25,26 @@ iazi.maps = function (container,key,path) {
     iazi.maps.loadScript(scripts, container);
     iazi.maps.loadCSS(hrefs, container);
 
-    setTimeout(function () { iazi.maps.setKey(key); }, 5000)
+    window.addEventListener("load", function () {
+        iazi.maps.setChildContainersHeight(container)
+        iazi.maps.setKey(key);
+    });
+}
+iazi.maps.setMainContainerHeight = function (container) {
+    var containerEl = document.getElementById(container);
+    var parentElHeight = containerEl.parentElement.offsetHeight;
+    containerEl.style.height = (parentElHeight + "px");
+    containerEl.style.width = ("100%");
+    containerEl.className += "IAZI-body";
+
+}
+
+iazi.maps.setChildContainersHeight = function (container) {
+    var ElHeight = document.getElementById(container).offsetHeight;
+    // var ElHeight = document.getElementById(container).offsetHeight;
+    var targetEl = document.getElementsByClassName('full-height');
+    targetEl[0].style.height = (ElHeight + "px");
+    targetEl[1].style.height = (ElHeight + "px");
 }
 
 
