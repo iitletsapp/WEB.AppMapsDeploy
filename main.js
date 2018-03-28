@@ -1,11 +1,14 @@
 ﻿
 window.iazi = window.iazi || {};
 iazi.maps = iazi.maps || {};
-iazi.maps = function (container, key) {
-
-    iazi.maps.setMainContainerHeight(container);
+iazi.maps = function (container,key,path) {
+  
+    var obj = JSON.parse(path);
+    path = obj.basePath;
+	
+	sessionStorage.setItem('iazimappath', path);
+	
     iazi.maps.loadContainer(container);
-
 
     var head = document.getElementById(container);
     var script = document.createElement('script');
@@ -15,43 +18,23 @@ iazi.maps = function (container, key) {
     script.innerHTML = 'document.write("<base href=\'" + document.location.pathname + "\' />");';
     head.appendChild(script);
 
-    var scripts = ['inline.bundle.js', 'polyfills.bundle.js',
-        'scripts.bundle.js', 'main.bundle.js'];
+    var scripts = [path + '/inline.bundle.js', path + '/polyfills.bundle.js', path + '/main.bundle.js'];
 
-    var hrefs = ['styles.bundle.css'];
+    var hrefs = [path + '/styles.bundle.css'];
 
     iazi.maps.loadScript(scripts, container);
     iazi.maps.loadCSS(hrefs, container);
 
-    window.addEventListener("load", function () {
-        iazi.maps.setChildContainersHeight(container)
-        iazi.maps.setKey(key);
-    });
-}
-
-iazi.maps.setMainContainerHeight = function (container) {
-    var containerEl = document.getElementById(container);
-    var parentElHeight = containerEl.parentElement.offsetHeight;
-    containerEl.style.height = (parentElHeight + "px");
-    containerEl.style.width = ("100%");
-    containerEl.className += "IAZI-body";
-
-}
-
-iazi.maps.setChildContainersHeight = function (container) {
-    var ElHeight = document.getElementById(container).offsetHeight;
-    // var ElHeight = document.getElementById(container).offsetHeight;
-    var targetEl = document.getElementsByClassName('full-height');
-    targetEl[0].style.height = (ElHeight + "px");
-    targetEl[1].style.height = (ElHeight + "px");
+    setTimeout(function () { iazi.maps.setKey(key); }, 5000)
 }
 
 
-iazi.maps.loadContainer = function (container) {
+
+iazi.maps.loadContainer =  function(container) {
     document.getElementById(container).innerHTML = "<iazi-map-root></iazi-map-root>";
 }
 
-iazi.maps.loadScript = function (scripts, container) {
+iazi.maps.loadScript = function(scripts, container) {
     for (i = 0; i < scripts.length; i++) {
         var head = document.getElementById(container);
         var script = document.createElement('script');
@@ -61,8 +44,8 @@ iazi.maps.loadScript = function (scripts, container) {
     }
 }
 
-iazi.maps.loadCSS = function (hrefs, container) {
-
+iazi.maps.loadCSS = function(hrefs, container) {
+   
     for (i = 0; i < hrefs.length; i++) {
         var head = document.getElementById(container);
         var css = document.createElement('link');
@@ -74,11 +57,11 @@ iazi.maps.loadCSS = function (hrefs, container) {
 }
 
 
-iazi.maps.setKey = function (key) {
+iazi.maps.setKey = function(key) {
     my.namespace.setApiKey(key);
 }
 
-iazi.maps.setLanguage = function (language) {
+iazi.maps.setLanguage = function(language) {
     my.namespace.publicFunc(language);
 }
 
