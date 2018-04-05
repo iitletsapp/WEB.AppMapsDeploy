@@ -7,6 +7,7 @@ iazi.maps = function (container,key,path) {
     path = obj.basePath;
 	
 	sessionStorage.setItem('iazimappath', path);
+	iazi.maps.setMainContainerStyle(container);
 	iazi.maps.setMainContainerHeight(container);
     iazi.maps.loadContainer(container);
 
@@ -24,30 +25,43 @@ iazi.maps = function (container,key,path) {
 
     iazi.maps.loadScript(scripts, container);
     iazi.maps.loadCSS(hrefs, container);
-
-    window.addEventListener("load", function () {
-        iazi.maps.setChildContainersHeight(container)
-        iazi.maps.setKey(key);
+		 
+   window.addEventListener("load", function () {
+    iazi.maps.setChildContainersHeight(container);
+    iazi.maps.setKey(key);
+   });
+		
+	 window.addEventListener("resize", function () {
+	  iazi.maps.setMainContainerHeight(container);
+      iazi.maps.setChildContainersHeight(container);
     });
 }
+
+iazi.maps.setMainContainerStyle = function (container){
+	var containerEl = document.getElementById(container);
+    containerEl.className += "IAZI-body";
+}
+
 iazi.maps.setMainContainerHeight = function (container) {
     var containerEl = document.getElementById(container);
     var parentElHeight = containerEl.parentElement.offsetHeight;
     containerEl.style.height = (parentElHeight + "px");
-    containerEl.style.width = ("100%");
-    containerEl.className += "IAZI-body";
-
 }
 
 iazi.maps.setChildContainersHeight = function (container) {
     var ElHeight = document.getElementById(container).offsetHeight;
-    // var ElHeight = document.getElementById(container).offsetHeight;
-    var targetEl = document.getElementsByClassName('full-height');
-    targetEl[0].style.height = (ElHeight + "px");
-    targetEl[1].style.height = (ElHeight + "px");
+    var ElHeight = document.getElementById(container).offsetHeight;
+    var targetElStartup = document.getElementsByClassName('container-background');
+	if(targetElStartup.length >0){
+		targetElStartup[0].style.height = (ElHeight + "px");
+	}
+	
+	var targetElHome = document.getElementsByClassName('full-height');
+	if(targetElHome.length >0){
+		targetElHome[0].style.height = (ElHeight + "px");
+		targetElHome[1].style.height = (ElHeight + "px");
+	}
 }
-
-
 
 iazi.maps.loadContainer =  function(container) {
     document.getElementById(container).innerHTML = "<iazi-map-root></iazi-map-root>";
@@ -75,7 +89,6 @@ iazi.maps.loadCSS = function(hrefs, container) {
     }
 }
 
-
 iazi.maps.setKey = function(key) {
     my.namespace.setApiKey(key);
 }
@@ -88,119 +101,3 @@ iazi.maps.getMicro = function () {
     return my.namespace.quality;
 }
 
-/*! https://mths.be/startswith v0.2.0 by @mathias */
-if (!String.prototype.startsWith) {
-    (function () {
-        'use strict'; // needed to support `apply`/`call` with `undefined`/`null`
-        var defineProperty = (function () {
-            // IE 8 only supports `Object.defineProperty` on DOM elements
-            try {
-                var object = {};
-                var $defineProperty = Object.defineProperty;
-                var result = $defineProperty(object, object, object) && $defineProperty;
-            } catch (error) { }
-            return result;
-        }());
-        var toString = {}.toString;
-        var startsWith = function (search) {
-            if (this == null) {
-                throw TypeError();
-            }
-            var string = String(this);
-            if (search && toString.call(search) == '[object RegExp]') {
-                throw TypeError();
-            }
-            var stringLength = string.length;
-            var searchString = String(search);
-            var searchLength = searchString.length;
-            var position = arguments.length > 1 ? arguments[1] : undefined;
-            // `ToInteger`
-            var pos = position ? Number(position) : 0;
-            if (pos != pos) { // better `isNaN`
-                pos = 0;
-            }
-            var start = Math.min(Math.max(pos, 0), stringLength);
-            // Avoid the `indexOf` call if no match is possible
-            if (searchLength + start > stringLength) {
-                return false;
-            }
-            var index = -1;
-            while (++index < searchLength) {
-                if (string.charCodeAt(start + index) != searchString.charCodeAt(index)) {
-                    return false;
-                }
-            }
-            return true;
-        };
-        if (defineProperty) {
-            defineProperty(String.prototype, 'startsWith', {
-                'value': startsWith,
-                'configurable': true,
-                'writable': true
-            });
-        } else {
-            String.prototype.startsWith = startsWith;
-        }
-    }());
-}
-
-/*! https://mths.be/endswith v0.2.0 by @mathias */
-if (!String.prototype.endsWith) {
-    (function () {
-        'use strict'; // needed to support `apply`/`call` with `undefined`/`null`
-        var defineProperty = (function () {
-            // IE 8 only supports `Object.defineProperty` on DOM elements
-            try {
-                var object = {};
-                var $defineProperty = Object.defineProperty;
-                var result = $defineProperty(object, object, object) && $defineProperty;
-            } catch (error) { }
-            return result;
-        }());
-        var toString = {}.toString;
-        var endsWith = function (search) {
-            if (this == null) {
-                throw TypeError();
-            }
-            var string = String(this);
-            if (search && toString.call(search) == '[object RegExp]') {
-                throw TypeError();
-            }
-            var stringLength = string.length;
-            var searchString = String(search);
-            var searchLength = searchString.length;
-            var pos = stringLength;
-            if (arguments.length > 1) {
-                var position = arguments[1];
-                if (position !== undefined) {
-                    // `ToInteger`
-                    pos = position ? Number(position) : 0;
-                    if (pos != pos) { // better `isNaN`
-                        pos = 0;
-                    }
-                }
-            }
-            var end = Math.min(Math.max(pos, 0), stringLength);
-            var start = end - searchLength;
-            if (start < 0) {
-                return false;
-            }
-            var index = -1;
-            while (++index < searchLength) {
-                if (string.charCodeAt(start + index) != searchString.charCodeAt(index)) {
-                    return false;
-                }
-            }
-            return true;
-        };
-        if (defineProperty) {
-            defineProperty(String.prototype, 'endsWith', {
-                'value': endsWith,
-                'configurable': true,
-                'writable': true
-            });
-        } else {
-            String.prototype.endsWith = endsWith;
-        }
-    }());
-}

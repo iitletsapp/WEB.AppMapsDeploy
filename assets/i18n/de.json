@@ -6,7 +6,9 @@
     "TAXES": "Steuern",
     "MARKET": "Markt",
     "POI": "Poi",
-    "NOISE": "Lärm"
+    "NOISE": "Lärm",
+    "MUNICIPALITYRATING": "Gemeinde bewertung",
+    "ADDRESSRATING": "Adressen bewertung"
   },
   "SEARCH": {
     "PLACEHOLDER": "Suchbegriff eingeben",
@@ -34,7 +36,8 @@
     "POPULATIONCHARTYLABEL": "Bevölkerung",
     "POPULATIONCHARTXLABEL": "Jahr",
     "AGECHARTYLABEL": "Altersklasse",
-    "AGECHARTXLABEL": "Anteil in %"
+    "AGECHARTXLABEL": "Anteil in %",
+    "YOUTHRATIO": "Jugendanteil"
   },
   "TAXES": {
     "OVERVIEW": "Steuerbelastung",
@@ -44,7 +47,8 @@
     "LEGEND4": "Ehepaar, 2 Kinder, Bruttoeinkommen 70'000 CHF",
     "LEGEND5": "Ehepaar, 2 Kinder, Bruttoeinkommen 100'000 CHF",
     "LEGEND6": "Pensioniertes Ehepaar, über 65, Renteneinkommen 70'000 CHF",
-    "TAXCHARTYLABEL" : "Jährliche Belastung"
+    "TAXCHARTYLABEL" : "Jährliche Belastung",
+    "AVERAGETAXCHARGE": "Durschnittliche taxe"
 
   },
   "HOUSINGMARKERT": {
@@ -52,7 +56,8 @@
     "KEYFIGURES": "Kennzahlen",
     "VACANCY": "Leerstandsziffer",
     "HOUSINGSTOCK": "Wohnungsbestand",
-    "NEWHOUSING": "Neue Wohnungen in den letzten 5 Jahren"
+    "NEWHOUSING": "Neue Wohnungen in den letzten 5 Jahren",
+    "HOUSEPRICE": "Liegenschaftspreis"
 
   },
   "NAVIGATION": {

@@ -6,7 +6,9 @@
     "TAXES": "Taxes",
     "MARKET": "Market",
     "POI": "Poi",
-    "NOISE": "noise"
+    "NOISE": "noise",
+    "MUNICIPALITYRATING": "Municipality rating",
+    "ADDRESSRATING": "Address rating"
   },
   "SEARCH": {
     "PLACEHOLDER": "type to search...",
@@ -34,7 +36,8 @@
     "POPULATIONCHARTYLABEL": "population",
     "POPULATIONCHARTXLABEL": "year",
     "AGECHARTYLABEL": "age group",
-    "AGECHARTXLABEL": "share in %"
+    "AGECHARTXLABEL": "share in %",
+    "YOUTHRATIO": "Youth ratio"
   },
   "TAXES": {
     "OVERVIEW": "Tax Charge",
@@ -44,7 +47,8 @@
     "LEGEND4": "Married couple, 2 children, gross income 70'000 CHF",
     "LEGEND5": "Married couple, 2 children, gross income 100'000 CHF",
     "LEGEND6": "Retired couple, gross rent income 70'000 CHF",
-    "TAXCHARTYLABEL" : "yearly tax"
+    "TAXCHARTYLABEL" : "yearly tax",
+    "AVERAGETAXCHARGE": "Average tax charge"
 
   },
   "HOUSINGMARKERT": {
@@ -52,22 +56,23 @@
     "KEYFIGURES": "Key Figures",
     "VACANCY": "Vacancy Rate",
     "HOUSINGSTOCK": "Housing Stock",
-    "NEWHOUSING": "New Housing Last 5 Years"
+    "NEWHOUSING": "New Housing Last 5 Years",
+    "HOUSEPRICE": "Individual house price"
 
   },
   "NAVIGATION": {
     "MICRO": "address rating",
     "POI": "POI",
-    "NOISE": "noise",
-    "VIEW": "view",
-    "SUNSHINE": "sunshine",
-    "TRANSPORT": "transport",
+    "NOISE": "Noise",
+    "VIEW": "View",
+    "SUNSHINE": "Sunshine",
+    "TRANSPORT": "Transport",
     "GENERALINFO": "General Information",
     "POPULATION": "Population",
     "TAX": "Tax",
     "HOUSINGMARKET": "Housing Market",
     "POI": "POI",
-    "NOISE": "NOISE"
+    "NOISE": "Noise"
   },
   "POI": {
     "MINDISTANCE": "min",
